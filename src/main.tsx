@@ -5,6 +5,8 @@ import MemoryGame from './components/MemoryGame.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MemoryGame />
+    <div className="bg-green-100 w-full h-full">
+      <MemoryGame />
+    </div>
   </StrictMode>,
 )
