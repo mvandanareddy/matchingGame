@@ -16,7 +16,7 @@ type Difficulty = {
 };
 
 const getAvailableDifficulties = (category: string): Difficulty[] => {
-  let totalEmojis = category === "mixed"
+  const totalEmojis = category === "mixed"
     ? Object.values(categories).flat().length
     : categories[category as keyof typeof categories].length;
   
@@ -172,7 +172,7 @@ const MemoryGame = () => {
         </div>
       </div>
 
-      <div >
+      <div className="p-4">
         <div 
           className="grid gap-3 mx-auto"
           style={{
@@ -194,7 +194,7 @@ const MemoryGame = () => {
       {/* Game Over Modal */}
       {gameOver && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg text-center">
+          <div className="bg-white p-8 rounded-lg text-center shadow-lg">
             <h2 className="text-2xl font-bold text-red-500 mb-4">Game Over! 😢</h2>
             <p className="text-gray-600 mb-4">You've made too many mistakes.</p>
             <button
@@ -210,7 +210,7 @@ const MemoryGame = () => {
       {/* Victory Modal */}
       {!gameOver && matchedCards.length === difficulty.pairs && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg text-center">
+          <div className="bg-white p-8 rounded-lg text-center shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Congratulations! 🎉</h2>
             <p className="text-gray-600 mb-4">You've matched all the pairs with {mistakes} mistakes!</p>
             <button
